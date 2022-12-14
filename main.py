@@ -1,6 +1,7 @@
 from random import sample
 from NaturalMergeSorting import Natural_Merge_Sort
-
+from BalancedMergeSorting import Balanced_Merge_Sort
+from PolyphaseMergeSorting import PolyphaseMergeSort
 # algorithms = {'1': InsertionSort,
 #               '2': quickSort}
 
@@ -9,7 +10,7 @@ from NaturalMergeSorting import Natural_Merge_Sort
 # if alg not in algorithms:
 #     alg = '1'
 
-data_size = 20
+data_size = 500
 data = sample(range(data_size), data_size)
 
 

@@ -60,7 +60,6 @@ def Merge():
 
 
 def Natural_Merge_Sort():
-
     while True:
         listSplit()
         if os.stat("buf2.txt").st_size == 0:

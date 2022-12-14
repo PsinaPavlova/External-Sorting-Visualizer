@@ -1,0 +1,17 @@
+while C != []:
+    C.pop(0)
+    if C == []:
+        if CurrentC1:
+            C1.append(temp)
+        else:
+            C2.append(temp)
+        break
+    if CurrentC1:
+        C1.append(temp)
+        if temp > C[0]:
+            CurrentC1 == False
+    else:
+        C2.append(temp)
+        if temp > C[0]:
+            CurrentC1 == True
+    temp = C[0]
