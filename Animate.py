@@ -10,13 +10,42 @@ buf2Graph = ax3.bar
 titles = {'1': "Natural Merge Sort",
           '2': 'Balanced Merge Sort'}
 
+def read_next_number(file):
+
+    num_str = file.readline()
+    if num_str != "`\n" and num_str != '':
+        num = int(num_str.replace("\n", ""))
+        return num
+    return None
 
 def alg_title(alg):
     global title
     title = titles[alg]
     return title
 
+def readAndAnimate(MainFile, bufFile1, bufFile2):
+    Maindata=[]
+    bufData1=[]
+    bufData2=[]
+    with open(MainFile, 'r') as Main, open (bufFile1, 'r') as Buf1, open (bufFile2,'r') as Buf2:
+        num=read_next_number(Main)
+        while num is not None:
+            Maindata.append(num)
+            num=read_next_number(Main)
 
+        num=read_next_number(Buf1)
+        while num is not None:
+            bufData1.append(num)
+            num=read_next_number(Buf1)
+
+        num=read_next_number(Buf2)
+        while num is not None:
+            bufData2.append(num)
+            num=read_next_number(Buf2)
+    Plot (Maindata, bufData1, bufData2)
+
+       
+        
 def Plot(mainData, buf1, buf2):
     x = list(range(len(mainData)))
 
@@ -32,12 +61,10 @@ def Plot(mainData, buf1, buf2):
     ax3.bar(x, buf2, color=colors)
 
     # plt.title(title)
-    plt.show()
-    plt.xlabel(title)
+    # plt.xlabel(title)
 
     camera.snap()
 
-
-alg_title('1')
-Plot([1, 2, 4, 5, 4, 5, 6, 7, 8, 9, 9], [
-     8, 5, 3, 5, 1, 2, 3, 4, 5, 5], [7, 4, 2, 3])
+def Show_Animation(animation_interval):
+    animation = camera.animate(interval=animation_interval)
+    plt.show()
